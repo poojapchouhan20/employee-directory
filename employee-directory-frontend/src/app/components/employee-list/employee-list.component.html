@@ -1,0 +1,44 @@
+<!-- Outer container with top margin -->
+<div class="container mt-4">
+
+  <!-- Header section: Title and Logout button aligned using flexbox -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Employee Directory</h3>
+    <!-- Logout button triggers the logout() method -->
+    <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+  </div>
+
+  <hr>
+
+  <!-- Button to navigate to add employee form -->
+  <button class="btn btn-primary mb-3" (click)="addEmployee()">Add Employee</button>
+
+  <!-- Bootstrap-styled table to display employee data -->
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Loop through the employees array and display each record -->
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.firstName }}</td>
+        <td>{{ employee.lastName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>
+          <!-- Button to navigate to edit employee form -->
+          <button class="btn btn-info btn-sm me-1" (click)="editEmployee(employee.id)">Update</button>
+          
+          <!-- Button to delete the employee -->
+          <button class="btn btn-danger btn-sm" (click)="deleteEmployee(employee.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

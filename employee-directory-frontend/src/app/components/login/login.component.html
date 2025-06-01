@@ -1,0 +1,56 @@
+<!-- Full-screen center-aligned container with gradient background -->
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(to right, #83a4d4, #b6fbff);">
+
+  <!-- Card-style login box with white background and shadow -->
+  <div style="background-color: white; padding: 40px 30px; border-radius: 10px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); width: 350px; text-align: center;">
+    
+    <!-- Page heading and subheading -->
+    <h1 style="margin-bottom: 10px; color: #2c3e50;">Welcome to Employee Directory!</h1>
+    <h2 style="margin-bottom: 30px; color: #34495e;">Login</h2>
+
+    <!-- Login form bound to Angular component using ngForm -->
+    <form (ngSubmit)="login()" #loginForm="ngForm">
+      
+      <!-- Username input field with two-way data binding -->
+      <div style="margin-bottom: 20px;">
+        <input
+          [(ngModel)]="username"
+          name="username"
+          placeholder="Username"
+          required
+          ngModel
+          style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;"
+        />
+      </div>
+
+      <!-- Password input field with two-way data binding -->
+      <div style="margin-bottom: 20px;">
+        <input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+          ngModel
+          style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;"
+        />
+      </div>
+
+      <!-- Login button, disabled if form is invalid -->
+      <div style="margin-bottom: 20px;">
+        <button
+          type="submit"
+          [disabled]="!loginForm.form.valid"
+          style="width: 100%; padding: 12px; font-size: 16px; background-color: #2980b9; color: white; border: none; border-radius: 5px; cursor: pointer;"
+        >
+          Login
+        </button>
+      </div>
+
+      <!-- Error message displayed conditionally if login fails -->
+      <div *ngIf="error" style="color: red">{{ error }}</div>
+    </form>
+
+  </div>
+
+</div>

@@ -1,0 +1,48 @@
+<!-- Container for the form, with top margin -->
+<div class="container mt-4">
+  <!-- Dynamic heading based on whether in edit or add mode -->
+  <h3>{{ isEditMode ? 'Update' : 'Add' }} Employee</h3>
+  <hr>
+
+  <!-- Reactive form bound to 'employeeForm' and submits via onSubmit() -->
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+
+    <!-- First Name Input Field -->
+    <div class="mb-3 w-25">
+      <!-- Binds input to 'firstName' form control -->
+      <input type="text" formControlName="firstName" class="form-control" placeholder="First Name" id="firstName" />
+      
+      <!-- Validation Error Message: shown only if touched and invalid -->
+      <div *ngIf="firstName?.touched && firstName?.invalid" class="text-danger">
+        <small *ngIf="firstName?.errors?.['required']">First name is required.</small>
+      </div>
+    </div>
+
+    <!-- Last Name Input Field -->
+    <div class="mb-3 w-25">
+      <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name" id="lastName" />
+      <div *ngIf="lastName?.touched && lastName?.invalid" class="text-danger">
+        <small *ngIf="lastName?.errors?.['required']">Last name is required.</small>
+      </div>
+    </div>
+
+    <!-- Email Input Field -->
+    <div class="mb-3 w-25">
+      <input type="email" formControlName="email" class="form-control" placeholder="Email" id="email" />
+      <div *ngIf="email?.touched && email?.invalid" class="text-danger">
+        <!-- Required & format validation error messages -->
+        <small *ngIf="email?.errors?.['required']">Email is required.</small>
+        <small *ngIf="email?.errors?.['email']">Invalid email format.</small>
+      </div>
+    </div>
+
+    <!-- Submit Button: Text changes depending on mode, disabled if form is invalid -->
+    <button type="submit" class="btn btn-success me-2" [disabled]="employeeForm.invalid">
+      {{ isEditMode ? 'Update' : 'Add' }}
+    </button>
+
+    <!-- Cancel Button: Navigates back to employee list -->
+    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+
+  </form>
+</div>
