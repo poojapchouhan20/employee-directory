@@ -1,0 +1,60 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# Build directories
+/target/
+/out/
+
+# IntelliJ
+.idea/
+/*.iml
+*.iws
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Gradle
+.gradle/
+/build/
+
+# Maven
+.mvn/
+!**/src/**/.keep
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+# Backup files
+*~
+*.swp
+*.bak
+# IntelliJ project files
+.idea/
+*.iml
+
+# Build output
+/target/
+/out/
+/build/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Maven
+.mvn/
+
